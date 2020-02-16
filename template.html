@@ -5,8 +5,11 @@
     <meta charset="utf-8" />
     <title>hackersweblog.net - Blog</title>
     <link rel="stylesheet" href="css/template.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Adamina"/>
     <script>
         function toggleNavButton() {
             var x = document.getElementById("topNavigation");
@@ -28,48 +31,56 @@
             <a href="#contact" class="active">Contact</a>
             <a href="javascript:void(0);" class="icon" onclick="toggleNavButton()"><i class="fa fa-bars"></i></a>
         </div>
-        <ul class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Linux</a></li>
-            <li><a href="#">Something</a></li>
-            <li>Linux > Windows</li>
-        </ul>
     </header>
 
     <main>
-
         <div class="contentRow">
 
             <div class="leftcolumn">
 
                 <div class="card">
-                    <h2>Title</h2>
-                    <h5>Description. 15.02.2020</h5>
-                    <div class="card-image" style="height: 200px;">SomeImage</div>
-                    <p>Some text here..</p>
+                    <h2>%Article.Title%</h2>
+                    <h5>%Article.Description% %Article.Date%</h5>
+                    <div class="articleImage">
+                        <img src="images/articleImage.jpg"  />
+                        <p>Bild: hackersweblog.net © 2020</p>
+                    </div>
+                    <div class="tagCloud">
+                        Tags: <i class="fa fa-tag"> <a href="#">linux</a></i>
+                        <i class="fa fa-tag"> <a href="#">windows</a></i>
+                        <i class="fa fa-tag"> <a href="#">prusa</a></i>
+                        <i class="fa fa-tag"> <a href="#">3d-printing</a></i>
+                        <i class="fa fa-tag"> <a href="#">dell</a></i>
+                        <i class="fa fa-tag"> <a href="#">hallo</a></i>
+                        <i class="fa fa-tag"> <a href="#">adrian</a></i>
+                    </div>
+                    <p>%Article.Content%</p>
+
+                </div>
+
+                <div class="prevPost">
+                    <a href="#previousArticle" class="prevButton">&lt;&lt; Previous</a>
+                </div>
+                <div class="nextPost">
+                    <a href="#nextArticle" class="nextButton">Next &gt;&gt;</a>
                 </div>
 
             </div>
 
-
             <div class="rightcolumn">
                 <div class="card">
-                    <h2>About Me</h2>
-                    <div class="card-image" style="height:100px;">Image</div>
-                    <p>Some text about me ..</p>
+                    <h2>About the Author</h2>
+                    <i class="fa fa-user-circle-o fa-4x" aria-hidden="true"></i>
+                    <h4>%Article.Author.Name%</h4>
+                    <p>%Article.Author.Description%</p>
                 </div>
                 <div class="card">
-                    <h3>Popular Post</h3>
+                    <h3>Newest articles</h3>
                     <div class="card-image">Image</div><br>
                     <div class="card-image">Image</div><br>
                     <div class="card-image">Image</div>
                 </div>
-                <div class="card">
-                    <h3>Follow Me</h3>
-                    <p>Some text..</p>
-                </div>
             </div>
-
 
         </div>
 
@@ -78,34 +89,14 @@
     <footer class="footer-distributed">
         <div class="footer-left">
             <h3>hackerswe<span>blog</span>.net</h3>
-            <!-- <p class="footer-links">
-					<a href="#">Home</a>
-					·
-					<a href="#">Blog</a>
-					·
-					<a href="#">Pricing</a>
-					·
-					<a href="#">About</a>
-					·
-					<a href="#">Faq</a>
-					·
-					<a href="#">Contact</a>
-				</p> -->
-
             <p class="footer-company-name">hackersweblog.net © 2020</p>
-
             <div class="footer-icons">
                 <a href="https://github.com/DeatPlayer/hackersweblog.net-page-template"><i class="fa fa-github"></i></a>
             </div>
         </div>
 
         <div class="footer-right">
-            <!-- <p>Contact Us</p>
-				<form action="#" method="post">
-					<input type="text" name="email" placeholder="Email">
-					<textarea name="message" placeholder="Message"></textarea>
-					<button>Send</button>
-				</form> -->
+            
         </div>
     </footer>
 
