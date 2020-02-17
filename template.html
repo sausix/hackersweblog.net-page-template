@@ -2,14 +2,16 @@
 <html>
 
 <head>
+
+    <title>hackersweblog.net - {{article_title}}</title>
     <meta charset="utf-8" />
-    <title>hackersweblog.net - Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/template.css" />
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/footer.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Adamina"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Adamina" />
     <script>
         function toggleNavButton() {
             var x = document.getElementById("topNavigation");
@@ -35,51 +37,64 @@
 
     <main>
         <div class="contentRow">
-
             <div class="leftcolumn">
-
                 <div class="card">
-                    <h2>%Article.Title%</h2>
-                    <h5>%Article.Description% %Article.Date%</h5>
+
+                    <h2>{{article_title}}</h2>
+                    <h5>{{article_description}} {{article_date}}</h5>
+
                     <div class="articleImage">
-                        <img src="images/articleImage.jpg"  />
-                        <p>Bild: hackersweblog.net © 2020</p>
+                        <img src="{{article_title}}" />
+                        <p>hackersweblog.net © 2020</p>
                     </div>
+
                     <div class="tagCloud">
-                        Tags: <i class="fa fa-tag"> <a href="#">linux</a></i>
-                        <i class="fa fa-tag"> <a href="#">windows</a></i>
-                        <i class="fa fa-tag"> <a href="#">prusa</a></i>
-                        <i class="fa fa-tag"> <a href="#">3d-printing</a></i>
-                        <i class="fa fa-tag"> <a href="#">dell</a></i>
-                        <i class="fa fa-tag"> <a href="#">hallo</a></i>
-                        <i class="fa fa-tag"> <a href="#">adrian</a></i>
+                        Tags: {% for n in tags_list %}
+                        <i class="fa fa-tag"> <a href="{{n}}">{{n}}</a></i>
+                        {% endfor %}
                     </div>
-                    <p>%Article.Content%</p>
+                </div>
+                <div class="card">
+                    <p>{{article_content}}</p>
+                    {% if article_sources is defined %}
+                        <h4>Sources:</h4>
+                        <ul>
+                            {% for n in article_sources %}
+                                <li><a href="{{n}}">{{n}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
 
                 </div>
-
-                <div class="prevPost">
-                    <a href="#previousArticle" class="prevButton">&lt;&lt; Previous</a>
-                </div>
-                <div class="nextPost">
-                    <a href="#nextArticle" class="nextButton">Next &gt;&gt;</a>
-                </div>
-
+                {% if article_linkWith != ""}
+                    <div class="prevPost">
+                        <a href="{{article_linkWith}}" class="prevButton">&lt;&lt; Previous</a>
+                    </div>
+                {% endif %}
+                {% if article_linkto != ""}
+                    <div class="nextPost">
+                        <a href="{{article_linkto}}" class="nextButton">Next &gt;&gt;</a>
+                    </div>
+                {% endif %}
             </div>
 
             <div class="rightcolumn">
                 <div class="card">
                     <h2>About the Author</h2>
-                    <i class="fa fa-user-circle-o fa-4x" aria-hidden="true"></i>
-                    <h4>%Article.Author.Name%</h4>
-                    <p>%Article.Author.Description%</p>
+                    <img src="{{author_image}}" height="128" width="128" />
+                    <h4>{{author_name}}</h4>
+                    <p>{{author_description}}</p>
                 </div>
+                {% if newest_articles is defined %}
                 <div class="card">
                     <h3>Newest articles</h3>
-                    <div class="card-image">Image</div><br>
-                    <div class="card-image">Image</div><br>
-                    <div class="card-image">Image</div>
+                    <ul>
+                        {% for n in newest_articles %}
+                            <li><a href="{{n}}">{{n}}</a></li>
+                        {% endfor %}
+                    </ul>
                 </div>
+                {% endif %}
             </div>
 
         </div>
@@ -96,7 +111,7 @@
         </div>
 
         <div class="footer-right">
-            
+
         </div>
     </footer>
 
