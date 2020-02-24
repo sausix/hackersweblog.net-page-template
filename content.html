@@ -3,7 +3,7 @@
 
 <head>
 
-    <title>hackersweblog.net - {{article_title}}</title>
+    <title>hackersweblog.net - {{content.title}}</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/template.css" />
@@ -40,40 +40,40 @@
             <div class="leftcolumn">
                 <div class="card">
 
-                    <h2>{{article_title}}</h2>
-                    <h5>{{article_description}} {{article_date}}</h5>
+                    <h2>{{content.title}}</h2>
+                    <h5>{{content.description}} {{content.date}}</h5>
 
                     <div class="articleImage">
-                        <img src="{{article_title}}" />
+                        <img src="{{article.title}}" />
                         <p>hackersweblog.net © 2020</p>
                     </div>
 
                     <div class="tagCloud">
-                        Tags: {% for n in tags_list %}
+                        Tags: {% for n in tags.list %}
                         <i class="fa fa-tag"> <a href="{{n}}">{{n}}</a></i>
                         {% endfor %}
                     </div>
                 </div>
                 <div class="card">
-                    <p>{{article_content}}</p>
-                    {% if article_sources is defined %}
+                    <p>{{content.content}}</p>
+                    {% if content.sources is defined %}
                         <h4>Sources:</h4>
                         <ul>
-                            {% for n in article_sources %}
+                            {% for n in content.sources %}
                                 <li><a href="{{n}}">{{n}}</a></li>
                             {% endfor %}
                         </ul>
                     {% endif %}
 
                 </div>
-                {% if article_linkWith != ""}
+                {% if content.linkWith != ""}
                     <div class="prevPost">
-                        <a href="{{article_linkWith}}" class="prevButton">&lt;&lt; Previous</a>
+                        <a href="{{article.linkWith}}" class="prevButton">&lt;&lt; Previous</a>
                     </div>
                 {% endif %}
-                {% if article_linkto != ""}
+                {% if content.linkto != ""}
                     <div class="nextPost">
-                        <a href="{{article_linkto}}" class="nextButton">Next &gt;&gt;</a>
+                        <a href="{{article.linkto}}" class="nextButton">Next &gt;&gt;</a>
                     </div>
                 {% endif %}
             </div>
@@ -81,15 +81,15 @@
             <div class="rightcolumn">
                 <div class="card">
                     <h2>About the Author</h2>
-                    <img src="{{author_image}}" height="128" width="128" />
-                    <h4>{{author_name}}</h4>
-                    <p>{{author_description}}</p>
+                    <img src="{{author.image}}" height="128" width="128" />
+                    <h4>{{author.name}}</h4>
+                    <p>{{author.description}}</p>
                 </div>
-                {% if newest_articles is defined %}
+                {% if newest.content is defined %}
                 <div class="card">
-                    <h3>Newest articles</h3>
+                    <h3>Newest content</h3>
                     <ul>
-                        {% for n in newest_articles %}
+                        {% for n in newest.content %}
                             <li><a href="{{n}}">{{n}}</a></li>
                         {% endfor %}
                     </ul>
