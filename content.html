@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!--
+    This is the default template for git2cms at hackersweblog.net
+    Github link to this project: https://github.com/DeatPlayer/hackersweblog.net-page-template
+    Github link to the git2cms project: https://github.com/sausix/git2cms
+-->
 <html>
 
 <head>
@@ -6,10 +11,10 @@
     <title>hackersweblog.net - {{content.title}}</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/template.css" />
-    <link rel="stylesheet" href="css/header.css" />
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="template.css" />
+    <link rel="stylesheet" href="header.css" />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="footer.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Adamina" />
     <script>
@@ -22,7 +27,6 @@
             }
         }
     </script>
-
 </head>
 
 <body>
@@ -44,8 +48,8 @@
                     <h5>{{content.description}} {{content.date}}</h5>
 
                     <div class="articleImage">
-                        <img src="{{article.title}}" />
-                        <p>hackersweblog.net © 2020</p>
+                        <img src="{{content.image}}" />
+                        <p>hackersweblog.net © {{current.year}}</p>
                     </div>
 
                     <div class="tagCloud">
@@ -55,7 +59,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <p>{{content.content}}</p>
+                    <p>{{content}}</p>
                     {% if content.sources is defined %}
                         <h4>Sources:</h4>
                         <ul>
@@ -66,9 +70,9 @@
                     {% endif %}
 
                 </div>
-                {% if content.linkWith != ""}
+                {% if content.linkwith != ""}
                     <div class="prevPost">
-                        <a href="{{article.linkWith}}" class="prevButton">&lt;&lt; Previous</a>
+                        <a href="{{article.linkwith}}" class="prevButton">&lt;&lt; Previous</a>
                     </div>
                 {% endif %}
                 {% if content.linkto != ""}
@@ -104,9 +108,10 @@
     <footer class="footer-distributed">
         <div class="footer-left">
             <h3>hackerswe<span>blog</span>.net</h3>
-            <p class="footer-company-name">hackersweblog.net © 2020</p>
+            <p class="footer-company-name">hackersweblog.net © {{current.year}}</p>
             <div class="footer-icons">
-                <a href="https://github.com/DeatPlayer/hackersweblog.net-page-template"><i class="fa fa-github"></i></a>
+                <a href="https://github.com/DeatPlayer/hackersweblog.net-page-template" title="Page Templates"><i class="fa fa-github"></i></a>
+                <a href="https://github.com/sausix/git2cms" title="Git2CMS"><i class="fa fa-github"></i></a>
             </div>
         </div>
 
