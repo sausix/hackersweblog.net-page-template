@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <!--
-    This is the default template for git2cms at hackersweblog.net
-    Github link to this project: https://github.com/DeatPlayer/hackersweblog.net-page-template
+    This is the default template for hackersweblog.net using git2cms
+    Github link to this template: https://github.com/DeatPlayer/hackersweblog.net-page-template
     Github link to the git2cms project: https://github.com/sausix/git2cms
 -->
 <html>
 
 <head>
-
-    <title>hackersweblog.net - {{content.title}}</title>
+    <title>{{pagename}} - {{content.title}}</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="{{content.description}}" />
@@ -107,10 +106,10 @@
     <footer class="footer-distributed">
         <div class="footer-left">
             <h3>hackerswe<span>blog</span>.net</h3>
-            <p class="footer-company-name">hackersweblog.net © {{current.year}}</p>
+            <p class="footer-company-name">{{pagename}} © {{copyright}}</p>
             <div class="footer-icons">
                 <a href="https://github.com/DeatPlayer/hackersweblog.net-page-template" title="Page Templates"><i class="fa fa-github"></i></a>
-                <a href="https://github.com/sausix/git2cms" title="Git2CMS"><i class="fa fa-github"></i></a>
+                <a href="https://github.com/sausix/git2cms" title="git2cms"><i class="fa fa-github"></i></a>
             </div>
         </div>
 
