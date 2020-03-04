@@ -8,6 +8,7 @@
 
 <head>
     <title>{{pagename}} - {{content.title}}</title>
+    {{template.head_extras}}
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="{{content.description}}" />
@@ -49,7 +50,7 @@
 
                     <div class="articleImage">
                         <img src="{{content.image}}" />
-                        <p>hackersweblog.net © {{current.year}}</p>
+                        <p>{{copyright}}</p>
                     </div>
 
                     <div class="tagCloud">
@@ -70,14 +71,14 @@
                     {% endif %}
 
                 </div>
-                {% if content.linkwith != ""}
+                {% if content.linkwith != "" %}
                     <div class="prevPost">
-                        <a href="{{article.linkwith}}" class="prevButton">&lt;&lt; Previous</a>
+                        <a href="{{content.linkwith}}" class="prevButton">&lt;&lt; Previous</a>
                     </div>
                 {% endif %}
-                {% if content.linkto != ""}
+                {% if content.linkto != "" %}
                     <div class="nextPost">
-                        <a href="{{article.linkto}}" class="nextButton">Next &gt;&gt;</a>
+                        <a href="{{content.linkto}}" class="nextButton">Next &gt;&gt;</a>
                     </div>
                 {% endif %}
             </div>
@@ -85,15 +86,15 @@
             <div class="rightcolumn">
                 <div class="card">
                     <h2>About the Author</h2>
-                    <img src="{{author.image}}" height="128" width="128" />
-                    <h4>{{author.name}}</h4>
-                    <p>{{author.description}}</p>
+                    <img src="{{ content.author.image }}" height="128" width="128" />
+<!--                     <h4>{{content["author"].name}}</h4> -->
+<!--                     <p>{{content["author"].description}}</p> -->
                 </div>
-                {% if newest.content is defined %}
+                {% if contents is defined %}
                 <div class="card">
                     <h3>Newest content</h3>
                     <ul>
-                        {% for n in newest.content %}
+                        {% for n in contents %}
                             <li><a href="{{n}}">{{n}}</a></li>
                         {% endfor %}
                     </ul>
@@ -106,7 +107,7 @@
     <footer class="footer-distributed">
         <div class="footer-left">
             <h3>hackerswe<span>blog</span>.net</h3>
-            <p class="footer-company-name">{{pagename}} © {{copyright}}</p>
+            <p class="footer-company-name">{{copyright}}</p>
             <div class="footer-icons">
                 <a href="https://github.com/DeatPlayer/hackersweblog.net-page-template" title="Page Templates"><i class="fa fa-github"></i></a>
                 <a href="https://github.com/sausix/git2cms" title="git2cms"><i class="fa fa-github"></i></a>
