@@ -12,10 +12,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="{{content.description}}" />
-    <link rel="stylesheet" href="template.css" />
-    <link rel="stylesheet" href="header.css" />
-    <link rel="stylesheet" href="main.css" />
-    <link rel="stylesheet" href="footer.css" />
+    <link rel="stylesheet" href="css/template.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Adamina" />
     <script>
@@ -60,7 +60,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <p>{{content}}</p>
+                    <p>{{content.content|markdown}}</p>
                     {% if content.sources is defined %}
                         <h4>Sources:</h4>
                         <ul>
